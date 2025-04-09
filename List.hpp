@@ -16,17 +16,41 @@ class List {
   //OVERVIEW: a doubly-linked, double-ended list with Iterator interface
 public:
 
+  // default constructor
+  List() : first(nullptr), last(nullptr), count(0) {}
+
+  // destructor
+  ~List() {
+    clear();
+  }
+
+  // copy constructor
+  List<T>& operator=(const List<T>& other) {
+    if (this != &other) {
+      clear();
+      copy_all(other);
+    }
+    return *this;
+  }
+
   //EFFECTS:  returns true if the list is empty
-  bool empty() const;
+  bool empty() const {
+    return first == nullptr;
+  }
 
   //EFFECTS: returns the number of elements in this List
   //HINT:    Traversing a list is really slow. Instead, keep track of the size
   //         with a private member variable. That's how std::list does it.
-  int size() const;
+  int size() const {
+    return count;
+  }
 
   //REQUIRES: list is not empty
   //EFFECTS: Returns the first element in the list by reference
-  T & front();
+  T & front() {
+    assert(!empty());
+    return first->datum;
+  }
 
   //REQUIRES: list is not empty
   //EFFECTS: Returns the last element in the list by reference
@@ -63,14 +87,20 @@ private:
     Node *next;
     Node *prev;
     T datum;
+    Node(const T &d) : next(nullptr), prev(nullptr), datum(d) { }
   };
 
   //REQUIRES: list is empty
   //EFFECTS:  copies all nodes from other to this
-  void copy_all(const List<T> &other);
+  void copy_all(const List<T> &other) {
+    for (*Node current = other.first; current != nullptr; current++) {
+      push_back(current->datum);
+    }
+  }
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
   Node *last;    // points to last Node in list, or nullptr if list is empty
+  int count;
 
 public:
   ////////////////////////////////////////
