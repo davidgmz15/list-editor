@@ -338,7 +338,6 @@ public:
     Node* insertNode = new Node(datum);
     Node* current = i.node_ptr;
     Node* prev = current->prev;
-    Node* next = current->next;
     insertNode->next = current;
     insertNode->prev = current->prev;
     if (current->prev) {

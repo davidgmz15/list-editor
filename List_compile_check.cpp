@@ -55,7 +55,7 @@ static int test()
     value = *--++my_list.begin();
 
     iter = my_list.begin();
-    *(iter++) = 280;
+    *(++iter) = 280;
     value = *iter;
     value = *(iter--);
     value = *iter;
