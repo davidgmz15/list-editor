@@ -89,62 +89,63 @@ bool TextBuffer::remove() {
 }
 
 // moves cursor to start of current row
-void move_to_row_start() {
-
+void TextBuffer::move_to_row_start() {
+    auto temp = cursor;
 }
 
 // moves cursor to end of current row
-void move_to_row_end() {
+void TextBuffer::move_to_row_end() {
 
 }
 
 // moves cursor to given column in 
-void move_to_column(int new_column) {
+void TextBuffer::move_to_column(int new_column) {
 
 }
 
 // 
-bool up() {
+bool TextBuffer::up() {
 
 }
 
 // 
-bool down() {
+bool TextBuffer::down() {
 
 }
 
-// 
-bool is_at_end() {
-
+// check if cursor is at past-the-end position
+bool TextBuffer::is_at_end() const {
+    return cursor == data.end();
 }
 
-// 
-char data_at_cursor() {
-
+// return the char at the current cursor position
+char TextBuffer::data_at_cursor() const {
+    assert(cursor != data.end());
+    return *cursor;
 }
 
-// 
-int get_row() {
-
+// return current row number
+int TextBuffer::get_row() const {
+    return row;
 }
 
-//
-int get_column() {
-
+// return current column number
+int TextBuffer::get_column() const {
+    return column;
 }
 
-// 
-int get_index() {
-
+// return current index of the char teh cursor is pointing to
+int TextBuffer::get_index() const {
+    return index;
 }
 
-// 
-int size() {
-
+// returns number of chars in buffer
+int TextBuffer::size() const {
+    return data.size();
 }
 
-//
-std::string stringify() {
-
+// returns the entire contents of the text buffer as a string
+std::string TextBuffer::stringify() const {
+    return std::string(data.begin(), data.end());
 }
 
