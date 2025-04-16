@@ -48,21 +48,28 @@ In your editor application, include TextBuffer.hpp:
 #include "TextBuffer.hpp"
 
 int main() {
+
     TextBuffer buffer;
     buffer.insert('H');
     buffer.insert('i');
     buffer.insert('\n');
     buffer.insert('!');
     std::cout << buffer.stringify(); // prints "Hi\n!"
+    
 }
 
 File Structure
 
 ├── List.hpp               # Custom doubly-linked list
+
 ├── TextBuffer.hpp         # TextBuffer class declaration
+
 ├── TextBuffer.cpp         # TextBuffer implementation
+
 ├── unit_test_framework.hpp# Simple unit test harness
+
 ├── ListTests.cpp          # Unit tests for List<T>
+
 └── TextBufferTests.cpp    # Unit tests for TextBuffer
 
 Switching to std::list
