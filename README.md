@@ -1,5 +1,4 @@
-**List & TextBuffer Editor Project
-**
+List & TextBuffer Editor Project
 -----------------------------------
 This project implements a doubly‑linked, double‑ended List<T> and a TextBuffer class that together form 
 the core of a simple text editor. You can switch between using the custom List<T> or std::list<char> by 
