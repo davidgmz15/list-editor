@@ -18,8 +18,7 @@ TextBuffer (TextBuffer.hpp / TextBuffer.cpp)
 - Vertical navigation: up(), down()
 - stringify() to retrieve full buffer contents as a std::string
 
-**Getting Started
-**
+Getting Started
 
 Prerequisites
 - C++11 (or later) compiler (e.g. g++, clang++)
